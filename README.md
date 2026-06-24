@@ -1,3 +1,7 @@
+[README.md](https://github.com/user-attachments/files/28682575/README.md)
+[🇹🇷 Türkçe README için buraya tıklayın](README_TR.md)
+
+
 <div align="center">
 
 # 🌍 Orbitra
