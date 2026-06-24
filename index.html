@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keşif — 3D Dünya Gezi Planlayıcı</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="loading">DÜNYA YÜKLENİYOR</div>
+<div id="canvas-holder"></div>
+
+<div id="ui">
+  <div id="title">
+    <h1>Bir ülke seç</h1>
+    <p>Keşfetmek istediğin yere dokun</p>
+  </div>
+
+  <div id="country-list">
+    <button class="country-btn" data-country="italy">İtalya</button>
+    <button class="country-btn" data-country="france">Fransa</button>
+    <button class="country-btn" data-country="turkey">Türkiye</button>
+    <button class="country-btn" data-country="japan">Japonya</button>
+    <button class="country-btn" data-country="spain">İspanya</button>
+  </div>
+
+  <div id="info-panel">
+    <div id="close-panel">✕</div>
+    <div class="eyebrow" id="panel-eyebrow">ÜLKE</div>
+    <h2 id="panel-title">—</h2>
+    <p class="desc" id="panel-desc">—</p>
+    <div id="city-list"></div>
+    <button id="continue-btn">Devam et →</button>
+  </div>
+
+  <div id="phase-note">Faz 1 / 4 — 3D Dünya &amp; Ülke Seçimi</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/globe.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
