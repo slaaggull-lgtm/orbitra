@@ -1,3 +1,7 @@
+[README_TR.md]( https://github.com/slaaggull-lgtm/orbitra/blob/main/README.md)
+[🇬🇧 For English README click here](README.md)
+
+
 <div align="center">
 
 # 🌍 Orbitra
