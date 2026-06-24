@@ -17,7 +17,7 @@
 
 </div>
 
-🚀 **[[CLICK HERE](https://slaaggull-lgtm.github.io/orbitra/)]** to track live development *(Pre-Alpha / Live Preview)* *(Note: The project is under active development. Only completed modules are currently deployed.)*
+🚀 **[[Click here to track live development](https://slaaggull-lgtm.github.io/orbitra/)]**  *(Pre-Alpha / Live Preview)* *(Note: The project is under active development. Only completed modules are currently deployed.)*
 
 ---
 
