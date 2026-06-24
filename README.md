@@ -2,7 +2,7 @@
 
 # 🌍 Orbitra
 
-### 3D bir dünya üzerinden keşfet, kişiselleştirilmiş gezi planını al
+### 
 
 [![Status](https://img.shields.io/badge/durum-aktif%20geliştiriliyor-orange?style=for-the-badge)](#-yol-haritası)
 [![Phase](https://img.shields.io/badge/faz-2%20%2F%204-blue?style=for-the-badge)](#-yol-haritası)
