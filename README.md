@@ -1,77 +1,107 @@
-# Keşif — 3D Dünya Üzerinden Kişiselleştirilmiş Gezi Planlayıcı
+<div align="center">
 
-Kullanıcının 3D dönen bir dünya üzerinden bir ülke seçip o ülkeye görsel bir
-"keşif" animasyonuyla yaklaştığı, ardından şehir/gün/tempo/ilgi alanı
-bilgilerine göre kişiselleştirilmiş gün-gün gezi planı aldığı bir keşif
-platformu.
+# 🌍 Orbitra
 
-Bu depo, projeyi **4 faz halinde 2 ay içinde** tamamlamak için kuruldu.
-Şu an **Faz 1** tamamlandı: 3D dünya, ülke seçimi, kamera keşif animasyonu,
-şehir seçim paneli.
+### 3D bir dünya üzerinden keşfet, kişiselleştirilmiş gezi planını al
 
-## Canlı önizleme (kurulum gerektirmez)
+[![Status](https://img.shields.io/badge/durum-aktif%20geliştiriliyor-orange?style=for-the-badge)](#-yol-haritası)
+[![Phase](https://img.shields.io/badge/faz-2%20%2F%204-blue?style=for-the-badge)](#-yol-haritası)
+[![Three.js](https://img.shields.io/badge/three.js-r128-black?style=for-the-badge&logo=three.js)](https://threejs.org)
 
-Bu proje saf HTML/CSS/JS'dir, hiçbir derleme adımı (build), npm kurulumu
-veya terminal gerektirmez.
 
-**Yöntem 1 — Doğrudan açma:** `index.html` dosyasını indir, tarayıcıda aç.
 
-**Yöntem 2 — GitHub Pages (önerilen, tamamen tarayıcı üzerinden):**
-1. Bu depoyu GitHub'a yükle (web arayüzünden "Add file → Upload files" ile,
-   terminal/git gerekmez).
-2. Depo sayfasında **Settings → Pages** sekmesine gir.
-3. "Branch" altında `main` / `(root)` seç, **Save**'e bas.
-4. Birkaç dakika içinde `https://kullaniciadi.github.io/depo-adi/` adresinde
-   proje canlıya çıkar.
+*Bir harita değil. Bir keşif anı.*
 
-Her değişiklik için tek yapman gereken dosyayı GitHub web arayüzünden
-düzenlemek veya yeniden yüklemek — terminale hiç ihtiyacın yok.
+</div>
 
-## Proje yapısı
+---
+
+## ✨ Bu proje ne yapıyor?
+
+Klasik gezi planlayıcılar bir form doldurup liste döndürür. **Keşif** bunu
+bir *deneyime* çeviriyor:
+
+```
+🌍 dönen dünya  →  🎯 ülke seç  →  🚀 kamera zoom (keşif animasyonu)
+        ↓
+🏙️ şehir seç  →  📅 gün / 🚶 tempo / ❤️ ilgi alanı
+        ↓
+📋 gün-gün, zaman akışlı, kişisel gezi planı
+        ↓
+👍 / 👎 geri bildirim  →  🧠 beğeni profili  →  🗺️ gezi geçmişi haritası
+```
+
+Amaç sadece "nereye gidilir" sorusuna cevap vermek değil — kullanıcıya
+ekrandan bir şehre **gerçekten yaklaşıyormuş** hissini yaşatmak.
+
+## 🎬 Şu an çalışan özellikler
+
+| Özellik | Durum |
+|---|---|
+| 3D dönen dünya (gerçek doku, yıldız alanı) | ✅ |
+| Ülke seçimi + kamera "keşif" zoom animasyonu | ✅ |
+| Şehir seçim paneli (çoklu seçim) | ✅ |
+| Gün sayısı / tempo / ilgi alanı formu | ✅ |
+| Gün-gün plan oluşturma motoru | 🚧 Faz 2 — şu an üzerinde çalışılıyor |
+| Beğen/beğenme +  profil | ⏳ Faz 3 |
+| Gezi geçmişi + harita işaretleme | ⏳ Faz 4 |
+
+
+
+
+## 🗂️ Proje haritası
 
 ```
 kesif-projesi/
-├── index.html          # Ana sayfa, tüm script/style referansları
-├── css/
-│   └── style.css       # Arayüz stilleri
-├── js/
-│   ├── data.js         # Ülke/şehir veri katmanı (Faz 2'de genişletilecek)
-│   ├── globe.js        # Three.js 3D dünya sahnesi ve kamera animasyonu
-│   ├── ui.js            # DOM etkileşimleri (butonlar, panel, seçimler)
-│   └── main.js          # Giriş noktası, açılış sırası
-└── docs/
-    └── ROADMAP.md       # 2 aylık detaylı yol haritası
+│
+├── 🏠 index.html              uygulamanın tek giriş sayfası
+│
+├── 🎨 css/
+│   └── style.css              tüm görsel stiller
+│
+├── ⚙️ js/
+│   ├── data.js                 ülke / şehir / ilgi alanı / tempo verisi
+│   ├── globe.js                 3D dünya sahnesi + kamera keşif animasyonu
+│   ├── preferences.js           gün / tempo / ilgi alanı tercih formu
+│   ├── ui.js                     panel ve buton etkileşimleri
+│   └── main.js                   uygulamanın açılış sırası
+│
+└── 📚 docs/
+    ├── ROADMAP.md               8 haftalık tam yol haritası
+    └── YARIN.md                  bir sonraki oturumda yapılacaklar
 ```
 
-## Kullanılan teknoloji
+## 🧰 Teknoloji seçimleri ve neden
 
-- **Three.js r128** (CDN üzerinden, kurulum gerekmez)
-- Vanilla JavaScript (framework yok — proje büyüdükçe Faz 3'te ihtiyaç
-  olursa değerlendirilecek)
-- Dünya dokusu: NASA Blue Marble tabanlı, `three-globe` npm paketinin
-  CDN üzerinden servis edilen görseli (CDN erişilemezse otomatik olarak
-  basit bir yedek dokuya düşer, uygulama hiçbir zaman kırılmaz)
+| Seçim | Neden |
+|---|---|
+| **Three.js** (CDN, r128) | Kurulum gerektirmeden tarayıcıda güçlü 3D sahne |
+| **Vanilla JS, framework yok** | Proje küçükken karmaşıklık eklememek; Faz 3'te ihtiyaç doğarsa değerlendirilecek |
+| **NASA Blue Marble dokusu** (CDN) | Gerçekçi kıta hatları; CDN erişilemezse otomatik yedek dokuya düşer, uygulama hiç kırılmaz |
 
-## Faz 1'de yapılanlar
 
-- [x] 3D dönen dünya, gerçekçi doku, yıldız alanı
-- [x] 5 ülke için lat/lon koordinatlı ışıklı marker
-- [x] Ülke seçiminde kamera + dünya rotasyonu ile "keşif" zoom animasyonu
-- [x] Varış sonrası açılan bilgi paneli + çoklu şehir seçimi
-- [x] Geri dönüş (✕) ile dünyaya dönme animasyonu
-- [x] Mobil uyumlu temel responsive düzen
+## 🗺️ Yol haritası
 
-## Sırada ne var
+```
+Hafta 1-2   ████████████████████  Faz 1  ✅  3D dünya & ülke seçimi
+Hafta 3-4   ██████████░░░░░░░░░░  Faz 2  🚧  tercihler & plan motoru
+Hafta 5-6   ░░░░░░░░░░░░░░░░░░░░  Faz 3  ⏳  gün akışı arayüzü & beğeni profili
+Hafta 7-8   ░░░░░░░░░░░░░░░░░░░░  Faz 4  ⏳  gezi geçmişi & cilalama
+```
 
-Detaylı plan için `docs/ROADMAP.md` dosyasına bak. Kısaca:
 
-- **Faz 2:** Şehir seçimi sonrası gün sayısı / tempo / ilgi alanı formu +
-  kural tabanlı gün-gün plan oluşturma motoru
-- **Faz 3:** Gün akışı arayüzü (kahvaltı → gezi → öğle → akşam), beğen/beğenme
-  geri bildirimi, kullanıcı zevk profili
-- **Faz 4:** Geçmiş geziler, dünya haritasında işaretlenmiş gezi geçmişi,
-  son cilalama ve performans/responsive iyileştirmeleri
+## 🎯 Tasarım felsefesi
 
-## Lisans
+"Keşif Doğrusal Değildir, Kaotik ve Akışkandır"
+Orbitra, kullanıcıya hangi saatte ne yapacağını söyleyen katı bir ajanda değildir. Aksine coğrafyayı, mekanları ve kullanıcının o anki modunu birbirine bağlayan akıllı ve esnek bir "Çekim Alanı" motorudur.
 
-Bu proje şu an kişisel/portföy amaçlı geliştirilmektedir.
+
+
+
+
+---
+
+<div align="center">
+<sub>🌍 dünya dönüyor, plan şekilleniyor.</sub>
+</div>
+
