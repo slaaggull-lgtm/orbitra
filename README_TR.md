@@ -19,6 +19,7 @@
 </div>
 
 ---
+🚀  **[[Canlı gelişim sürecini izlemek için buraya tıklayın](https://slaaggull-lgtm.github.io/orbitra/)]** *(Pre-Alpha / Canlı Önizleme)* *(Not: Proje şu an aktif olarak geliştirilmektedir. Sadece tamamlanan modüller canlıya yansımaktadır.)*
 
 ## ✨ Bu proje ne yapıyor?
 
