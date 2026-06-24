@@ -2,102 +2,99 @@
 
 # 🌍 Orbitra
 
-### 
+### Explore via a 3D globe, get your personalized travel itinerary
 
-[![Status](https://img.shields.io/badge/durum-aktif%20geliştiriliyor-orange?style=for-the-badge)](#-yol-haritası)
-[![Phase](https://img.shields.io/badge/faz-2%20%2F%204-blue?style=for-the-badge)](#-yol-haritası)
+[![Status](https://img.shields.io/badge/status-actively%20developed-orange?style=for-the-badge)](#-roadmap)
+[![Phase](https://img.shields.io/badge/phase-2%20%2F%204-blue?style=for-the-badge)](#-roadmap)
 [![Three.js](https://img.shields.io/badge/three.js-r128-black?style=for-the-badge&logo=three.js)](https://threejs.org)
 
 
-
-*Bir harita değil. Bir keşif anı.*
+*Not just a map. A moment of discovery..*
 
 </div>
 
 ---
 
-## ✨ Bu proje ne yapıyor?
+## ✨ What does this project do?
 
-Klasik gezi planlayıcılar bir form doldurup liste döndürür. **Keşif** bunu
-bir *deneyime* çeviriyor:
+Traditional travel planners make you fill out a form and return a flat list. Discovery turns this into an experience:
 
 ```
-🌍 dönen dünya  →  🎯 ülke seç  →  🚀 kamera zoom (keşif animasyonu)
+🌍 spinning globe  →  🎯 select country  →  🚀 camera zoom (discovery animation)
         ↓
-🏙️ şehir seç  →  📅 gün / 🚶 tempo / ❤️ ilgi alanı
+🏙️ select city  →  📅 days / 🚶 pace / ❤️ interest areas
         ↓
-📋 gün-gün, zaman akışlı, kişisel gezi planı
+📋 day-by-day, time-flowing, personalized travel itinerary
         ↓
-👍 / 👎 geri bildirim  →  🧠 beğeni profili  →  🗺️ gezi geçmişi haritası
+👍 / 👎 feedback  →  🧠 preference profile  →  🗺️ travel history map
 ```
 
-Amaç sadece "nereye gidilir" sorusuna cevap vermek değil — kullanıcıya
-ekrandan bir şehre **gerçekten yaklaşıyormuş** hissini yaşatmak.
+The goal is not just to answer "where to go" — it is to give the user the genuine feeling of actually approaching a city right through their screen.
 
-## 🎬 Şu an çalışan özellikler
+## 🎬 Currently working features
 
-| Özellik | Durum |
+| Feature | Status|
 |---|---|
-| 3D dönen dünya (gerçek doku, yıldız alanı) | ✅ |
-| Ülke seçimi + kamera "keşif" zoom animasyonu | ✅ |
-| Şehir seçim paneli (çoklu seçim) | ✅ |
-| Gün sayısı / tempo / ilgi alanı formu | ✅ |
-| Gün-gün plan oluşturma motoru | 🚧 Faz 2 — şu an üzerinde çalışılıyor |
-| Beğen/beğenme +  profil | ⏳ Faz 3 |
-| Gezi geçmişi + harita işaretleme | ⏳ Faz 4 |
+| 3D spinning globe (real texture, starfield) | ✅ |
+| Country selection + camera "discovery" zoom animation | ✅ |
+| City selection panel (multi-select) | ✅ |
+| Number of days / pace / interest area form | ✅ |
+| Day-by-day itinerary generation engine | 🚧 Phase 2 — currently being worked on |
+| Like/dislike + user profile | ⏳ Phase 3 |
+| Travel history + map marking | ⏳ Phase 4 |
 
 
 
 
-## 🗂️ Proje haritası
+## 🗂️ Project map
 
 ```
-kesif-projesi/
+orbitra/
 │
-├── 🏠 index.html              uygulamanın tek giriş sayfası
+├── 🏠 index.html              the sole entry page of the application
 │
 ├── 🎨 css/
-│   └── style.css              tüm görsel stiller
+│   └── style.css              all visual styles
 │
 ├── ⚙️ js/
-│   ├── data.js                 ülke / şehir / ilgi alanı / tempo verisi
-│   ├── globe.js                 3D dünya sahnesi + kamera keşif animasyonu
-│   ├── preferences.js           gün / tempo / ilgi alanı tercih formu
-│   ├── ui.js                     panel ve buton etkileşimleri
-│   └── main.js                   uygulamanın açılış sırası
+│   ├── data.js                country / city / interest / pace data
+│   ├── globe.js                 3D globe scene + camera discovery animation
+│   ├── preferences.js           days / pace / interest preference form
+│   ├── ui.js                     panel and button interactions
+│   └── main.js                  the initialization sequence of the app
 │
 └── 📚 docs/
-    ├── ROADMAP.md               8 haftalık tam yol haritası
-    └── YARIN.md                  bir sonraki oturumda yapılacaklar
+    ├── ROADMAP.md               8-week full roadmap
+                                 
 ```
 
-## 🧰 Teknoloji seçimleri ve neden
+## 🧰 Technology choices and reasons
 
-| Seçim | Neden |
+| Choice | Reason |
 |---|---|
-| **Three.js** (CDN, r128) | Kurulum gerektirmeden tarayıcıda güçlü 3D sahne |
-| **Vanilla JS, framework yok** | Proje küçükken karmaşıklık eklememek; Faz 3'te ihtiyaç doğarsa değerlendirilecek |
-| **NASA Blue Marble dokusu** (CDN) | Gerçekçi kıta hatları; CDN erişilemezse otomatik yedek dokuya düşer, uygulama hiç kırılmaz |
+| **Three.js** (CDN, r128) | Powerful 3D scene in the browser without any setup overhead |
+| **Vanilla JS, framework yok** | Avoiding complexity while the project is small; will be re-evaluated in Phase 3 if needed |
+| **NASA Blue Marble dokusu** (CDN) | Realistic continental outlines; automatically falls back to a backup texture if the CDN is unreachable, so the app never breaks|
 
 
-## 🗺️ Yol haritası
+## 🗺️ Roadmap
 
 ```
-Hafta 1-2   ████████████████████  Faz 1  ✅  3D dünya & ülke seçimi
-Hafta 3-4   ██████████░░░░░░░░░░  Faz 2  🚧  tercihler & plan motoru
-Hafta 5-6   ░░░░░░░░░░░░░░░░░░░░  Faz 3  ⏳  gün akışı arayüzü & beğeni profili
-Hafta 7-8   ░░░░░░░░░░░░░░░░░░░░  Faz 4  ⏳  gezi geçmişi & cilalama
+Hafta 1-2   ████████████████████  Faz 1  ✅  3D globe & country selection
+Hafta 3-4   ██████████░░░░░░░░░░  Faz 2  🚧  preferences & itinerary engine
+Hafta 5-6   ░░░░░░░░░░░░░░░░░░░░  Faz 3  ⏳  day flow interface & preference profile
+Hafta 7-8   ░░░░░░░░░░░░░░░░░░░░  Faz 4  ⏳  travel history & polishing
 ```
 
 
-## 🎯 Tasarım felsefesi
+## 🎯 Design philosophy
 
-"Keşif Doğrusal Değildir, Kaotik ve Akışkandır"
-Orbitra, kullanıcıya hangi saatte ne yapacağını söyleyen katı bir ajanda değildir. Aksine coğrafyayı, mekanları ve kullanıcının o anki modunu birbirine bağlayan akıllı ve esnek bir "Çekim Alanı" motorudur.
+"Discovery is Not Linear, It is Chaotic and Fluid"
+Orbitra is not a rigid agenda that dictates what the user should do at what exact hour. On the contrary, it is an intelligent and flexible "Attraction Field" engine that connects geography, places, and the user's current mood.
 
-## 📄 Lisans
+## 📄 License
 
-Bu proje MIT Lisansı kapsamında lisanslanmıştır.
+This project is licensed under the MIT License.
 
 
 
@@ -107,6 +104,6 @@ Bu proje MIT Lisansı kapsamında lisanslanmıştır.
 ---
 
 <div align="center">
-<sub>🌍 dünya dönüyor, plan şekilleniyor.</sub>
+<sub>🌍 the world spins, the plan takes shape.</sub>
 </div>
 
