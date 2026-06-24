@@ -95,6 +95,11 @@ Hafta 7-8   ░░░░░░░░░░░░░░░░░░░░  Faz 4 
 "Keşif Doğrusal Değildir, Kaotik ve Akışkandır"
 Orbitra, kullanıcıya hangi saatte ne yapacağını söyleyen katı bir ajanda değildir. Aksine coğrafyayı, mekanları ve kullanıcının o anki modunu birbirine bağlayan akıllı ve esnek bir "Çekim Alanı" motorudur.
 
+## 📄 Lisans
+
+Bu proje MIT Lisansı kapsamında lisanslanmıştır.
+
+
 
 
 
