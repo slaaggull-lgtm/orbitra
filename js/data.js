@@ -82,24 +82,24 @@ const PACE_OPTIONS = [
 const CITY_PHOTOS = {
   // FRANSA
   "Paris": [
-    "images/paris1.jpg",
-    "images/paris2.jpg",
-    "images/paris3.jpg"
+    "images/Paris1.jpg",
+    "images/Paris2.jpg",
+    "images/Paris3.jpg"
   ],
   "Nice": [
-    "images/nice1.jpg",
-    "images/nice2.jpg",
-    "images/nice3.jpg"
+    "images/Nice1.jpg",
+    "images/Nice2.jpg",
+    "images/Nice3.jpg"
   ],
   "Lyon": [
-    "images/lyon1.jpg",
-    "images/lyon2.jpg",
-    "images/lyon3.jpg"
+    "images/Lyon1.jpg",
+    "images/Lyon2.jpg",
+    "imagesLyon3.jpg"
   ],
   "Marsilya": [
-    "images/marsilya1.jpg",
-    "images/marsilya2.jpg",
-    "images/marsilya3.jpg"
+    "images/Marsilya1.jpg",
+    "images/Marsilya2.jpg",
+    "images/Marsilya3.jpg"
   ],
 
   // İTALYA
