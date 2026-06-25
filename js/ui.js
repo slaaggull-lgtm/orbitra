@@ -35,12 +35,26 @@ const UI = (() => {
     document.getElementById("close-panel").addEventListener("click", resetToGlobe);
 
     document.getElementById("continue-btn").addEventListener("click", () => {
-      // Faz 2'de burası şehir/tempo/gün/ilgi-alanı formuna yönlenecek.
+      Preferences.reset();
+      Preferences.open();
+    });
+
+    Preferences.onSubmit((summary) => {
       const country = window.COUNTRIES[selectedKey];
+      // Faz 2 — Adım 2'de (plan motoru) bu obje gerçek bir plan üretimine girecek.
+      console.log("Plan özeti:", {
+        country: country.name,
+        cities: Array.from(selectedCities),
+        ...summary,
+      });
       alert(
-        "Faz 2'ye hazır: " + country.name + " için seçilen şehirler:\n" +
-        Array.from(selectedCities).join(", ") +
-        "\n\nBir sonraki adımda gün sayısı, tempo ve ilgi alanı formu burada açılacak."
+        "Plan özeti hazır (konsola da yazıldı):\n\n" +
+        "Ülke: " + country.name + "\n" +
+        "Şehirler: " + Array.from(selectedCities).join(", ") + "\n" +
+        "Gün sayısı: " + summary.days + "\n" +
+        "Tempo: " + summary.pace + "\n" +
+        "İlgi alanları: " + summary.interests.join(", ") +
+        "\n\nSıradaki adım: bu veriyi gerçek bir gün-gün plana çeviren motor."
       );
     });
   }

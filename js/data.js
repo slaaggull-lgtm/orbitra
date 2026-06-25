@@ -48,5 +48,22 @@ const COUNTRIES = {
   },
 };
 
+// İlgi alanı seçenekleri — Faz 2 formu burayı kullanır
+const INTERESTS = [
+  { key: "history", label: "Tarih", icon: "🏛️" },
+  { key: "food", label: "Yemek", icon: "🍽️" },
+  { key: "cafe", label: "Kafe", icon: "☕" },
+  { key: "nature", label: "Doğa", icon: "🌿" },
+];
+
+// Tempo seçenekleri — günlük aktivite yoğunluğunu belirler (Faz 2'de plan motoru kullanacak)
+const PACE_OPTIONS = [
+  { key: "relaxed", label: "Rahat", desc: "Günde 2-3 aktivite, bol dinlenme", activitiesPerDay: 3 },
+  { key: "normal", label: "Normal", desc: "Günde 4-5 aktivite, dengeli tempo", activitiesPerDay: 5 },
+  { key: "intense", label: "Yoğun", desc: "Günde 6+ aktivite, dolu dolu bir gün", activitiesPerDay: 7 },
+];
+
 // Tarayıcıda global olarak diğer script dosyalarının kullanabilmesi için
 window.COUNTRIES = COUNTRIES;
+window.INTERESTS = INTERESTS;
+window.PACE_OPTIONS = PACE_OPTIONS;

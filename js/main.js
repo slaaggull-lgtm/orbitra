@@ -5,6 +5,7 @@
 
 window.addEventListener("load", () => {
   Globe.init(document.getElementById("canvas-holder"));
+  Preferences.init();
   UI.init();
 
   setTimeout(() => {

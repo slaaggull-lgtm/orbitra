@@ -109,6 +109,62 @@ canvas { display: block; }
 }
 
 @media (max-width: 640px) {
-  #info-panel { width: 100%; }
+  #info-panel, #preferences-panel { width: 100%; }
   .country-btn { padding: 10px 16px; font-size: 13px; }
+}
+
+#preferences-panel {
+  position: absolute; top: 0; right: 0; height: 100%; width: 380px;
+  background: rgba(8, 12, 22, 0.92);
+  border-left: 1px solid rgba(120, 160, 220, 0.2);
+  backdrop-filter: blur(10px);
+  transform: translateX(100%);
+  transition: transform 0.7s cubic-bezier(.22,1,.36,1);
+  pointer-events: auto;
+  padding: 56px 36px;
+  color: #e7ecf5;
+  display: flex; flex-direction: column;
+  overflow-y: auto;
+  max-width: 92vw;
+}
+#preferences-panel.open { transform: translateX(0); }
+#preferences-panel .eyebrow { font-size: 12px; letter-spacing: 3px; color: #ffb85c; text-transform: uppercase; }
+#preferences-panel h2 { font-size: 28px; font-weight: 300; margin-top: 8px; margin-bottom: 24px; letter-spacing: 1px; }
+
+#back-to-cities {
+  position: absolute; top: 24px; right: 28px; cursor: pointer;
+  color: #7b8aa6; font-size: 13px; letter-spacing: 1px;
+}
+
+.field-label {
+  font-size: 12px; letter-spacing: 1px; color: #8896ad; text-transform: uppercase;
+  margin: 20px 0 10px; display: block;
+}
+
+#days-input { width: 100%; }
+
+.pace-grid { display: flex; flex-direction: column; gap: 8px; }
+.pace-card {
+  border: 1px solid rgba(120,160,220,0.15); border-radius: 10px;
+  padding: 10px 14px; cursor: pointer; transition: all 0.2s ease;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.pace-card strong { font-size: 14px; }
+.pace-card span { font-size: 12px; color: #8896ad; }
+.pace-card:hover { border-color: #ffb85c; }
+.pace-card.selected { border-color: #ffb85c; background: rgba(255,184,92,0.08); }
+
+.interest-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.interest-chip {
+  border: 1px solid rgba(120,160,220,0.15); border-radius: 20px;
+  padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s ease;
+}
+.interest-chip:hover { border-color: #ffb85c; }
+.interest-chip.selected { border-color: #ffb85c; background: rgba(255,184,92,0.15); color: #ffd8a3; }
+
+#build-plan-btn {
+  margin-top: auto;
+  background: #ffb85c; color: #1a1206; border: none;
+  padding: 16px; border-radius: 10px; font-size: 14px; letter-spacing: 1px;
+  cursor: pointer; font-weight: 600;
 }
