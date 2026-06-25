@@ -117,29 +117,50 @@ const Globe = (() => {
     );
   }
 
+  function buildGlowSprite() {
+    const size = 128;
+    const canvas = document.createElement("canvas");
+    canvas.width = size; canvas.height = size;
+    const ctx = canvas.getContext("2d");
+    const grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+    grad.addColorStop(0, "rgba(255, 214, 160, 0.95)");
+    grad.addColorStop(0.25, "rgba(255, 184, 92, 0.55)");
+    grad.addColorStop(0.6, "rgba(255, 184, 92, 0.12)");
+    grad.addColorStop(1, "rgba(255, 184, 92, 0)");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, size, size);
+    return new THREE.CanvasTexture(canvas);
+  }
+
   function buildMarkers() {
     markerGroup = new THREE.Group();
     earth.add(markerGroup);
 
+    const glowTexture = buildGlowSprite();
+
     Object.values(window.COUNTRIES).forEach((c) => {
       const pos = latLonToVec3(c.lat, c.lon, 2.22);
 
-      const markerGeo = new THREE.SphereGeometry(0.045, 16, 16);
-      const markerMat = new THREE.MeshBasicMaterial({ color: 0xffb85c });
-      const marker = new THREE.Mesh(markerGeo, markerMat);
-      marker.position.copy(pos);
-      markerGroup.add(marker);
+      // Küçük, keskin merkez nokta
+      const dotGeo = new THREE.SphereGeometry(0.022, 16, 16);
+      const dotMat = new THREE.MeshBasicMaterial({ color: 0xfff1da });
+      const dot = new THREE.Mesh(dotGeo, dotMat);
+      dot.position.copy(pos);
+      markerGroup.add(dot);
 
-      const ringGeo = new THREE.RingGeometry(0.07, 0.09, 32);
-      const ringMat = new THREE.MeshBasicMaterial({
-        color: 0xffb85c, transparent: true, opacity: 0.6, side: THREE.DoubleSide,
+      // Yumuşak ışıltı (sprite, her zaman kameraya bakar)
+      const glowMat = new THREE.SpriteMaterial({
+        map: glowTexture,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
       });
-      const ring = new THREE.Mesh(ringGeo, ringMat);
-      ring.position.copy(pos);
-      ring.lookAt(pos.clone().multiplyScalar(2));
-      markerGroup.add(ring);
+      const glow = new THREE.Sprite(glowMat);
+      glow.scale.set(0.32, 0.32, 1);
+      glow.position.copy(pos);
+      markerGroup.add(glow);
 
-      markers[c.key] = { marker, ring, localPos: pos };
+      markers[c.key] = { dot, glow, localPos: pos, baseScale: 0.32 };
     });
   }
 
@@ -176,12 +197,20 @@ const Globe = (() => {
     onArriveCallback = cb;
   }
 
+  let clock = 0;
+
   function animate() {
     requestAnimationFrame(animate);
+    clock += 0.016;
 
     if (autoRotate && !animState) {
       earth.rotation.y += 0.0016;
     }
+
+    Object.values(markers).forEach((m, i) => {
+      const pulse = 1 + Math.sin(clock * 1.6 + i) * 0.18;
+      m.glow.scale.set(m.baseScale * pulse, m.baseScale * pulse, 1);
+    });
 
     if (animState) {
       animState.t += 1 / 60 / animState.duration;

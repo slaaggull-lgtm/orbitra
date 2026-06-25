@@ -96,14 +96,23 @@ const UI = (() => {
     document.getElementById("info-panel").classList.add("open");
   }
 
-  function showCityPhotos(city) {
+  async function showCityPhotos(city) {
     const wrap = document.getElementById("city-photos");
-    const photos = window.CITY_PHOTOS[city] || [];
-    wrap.innerHTML = `<div class="city-photos-label">${city}</div>` +
-      `<div class="city-photos-track">` +
-      photos.map((url) => `<img src="${url}" alt="${city}" loading="lazy" />`).join("") +
-      `</div>`;
+    wrap.innerHTML = `<div class="city-photos-label">${city}</div>
+      <div class="city-photos-track"><div class="photo-loading">fotoğraflar yükleniyor…</div></div>`;
     wrap.classList.add("show");
+
+    const photos = await Photos.fetchCityPhotos(city);
+
+    if (!photos || photos.length === 0) {
+      wrap.querySelector(".city-photos-track").innerHTML =
+        `<div class="photo-loading">bu şehir için fotoğraf bulunamadı</div>`;
+      return;
+    }
+
+    wrap.querySelector(".city-photos-track").innerHTML = photos
+      .map((url) => `<img src="${url}" alt="${city}" loading="lazy" />`)
+      .join("");
   }
 
   function resetToGlobe() {
