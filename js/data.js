@@ -79,17 +79,117 @@ const PACE_OPTIONS = [
   { key: "intense", label: "Yoğun", desc: "Günde 6+ aktivite, dolu dolu bir gün", activitiesPerDay: 7 },
 ];
 
-// Şehir fotoğrafları — şimdilik seed'li placeholder görseller (picsum.photos).
-// Gerçek şehir fotoğrafları elimize geçtiğinde (kendi çekimler ya da
-// lisanslı bir kaynak) burası gerçek URL'lerle değiştirilecek.
-const CITY_PHOTOS = {};
-Object.values(COUNTRIES).forEach((c) => {
-  c.cities.forEach((city) => {
-    CITY_PHOTOS[city] = [1, 2, 3].map(
-      (n) => `https://picsum.photos/seed/${encodeURIComponent(city)}-${n}/480/320`
-    );
-  });
-});
+const CITY_PHOTOS = {
+  // FRANSA
+  "Paris": [
+    "images/paris1.jpg",
+    "images/paris2.jpg",
+    "images/paris3.jpg"
+  ],
+  "Nice": [
+    "images/nice1.jpg",
+    "images/nice2.jpg",
+    "images/nice3.jpg"
+  ],
+  "Lyon": [
+    "images/lyon1.jpg",
+    "images/lyon2.jpg",
+    "images/lyon3.jpg"
+  ],
+  "Marsilya": [
+    "images/marsilya1.jpg",
+    "images/marsilya2.jpg",
+    "images/marsilya3.jpg"
+  ],
+
+  // İTALYA
+  "Roma": [
+    "images/roma1.jpg",
+    "images/roma2.jpg",
+    "images/roma3.jpg"
+  ],
+  "Milano": [
+    "images/milano1.jpg",
+    "images/milano2.jpg",
+    "images/milano3.jpg"
+  ],
+  "Venedik": [
+    "images/venedik1.jpg",
+    "images/venedik2.jpg",
+    "images/venedik3.jpg"
+  ],
+  "Floransa": [
+    "images/floransa1.jpg",
+    "images/floransa2.jpg",
+    "images/floransa3.jpg"
+  ],
+
+  // TÜRKİYE
+  "İstanbul": [
+    "images/istanbul1.jpg",
+    "images/istanbul2.jpg",
+    "images/istanbul3.jpg"
+  ],
+  "Kapadokya": [
+    "images/kapadokya1.jpg",
+    "images/kapadokya2.jpg",
+    "images/kapadokya3.jpg"
+  ],
+  "İzmir": [
+    "images/izmir1.jpg",
+    "images/izmir2.jpg",
+    "images/izmir3.jpg"
+  ],
+  "Antalya": [
+    "images/antalya1.jpg",
+    "images/antalya2.jpg",
+    "images/antalya3.jpg"
+  ],
+
+  // JAPONYA
+  "Tokyo": [
+    "images/tokyo1.jpg",
+    "images/tokyo2.jpg",
+    "images/tokyo3.jpg"
+  ],
+  "Kyoto": [
+    "images/kyoto1.jpg",
+    "images/kyoto2.jpg",
+    "images/kyoto3.jpg"
+  ],
+  "Osaka": [
+    "images/osaka1.jpg",
+    "images/osaka2.jpg",
+    "images/osaka3.jpg"
+  ],
+  "Hiroşima": [
+    "images/hirosima1.jpg",
+    "images/hirosima2.jpg",
+    "images/hirosima3.jpg"
+  ],
+
+  // İSPANYA
+  "Madrid": [
+    "images/madrid1.jpg",
+    "images/madrid2.jpg",
+    "images/madrid3.jpg"
+  ],
+  "Barselona": [
+    "images/barselona1.jpg",
+    "images/barselona2.jpg",
+    "images/barselona3.jpg"
+  ],
+  "Sevilla": [
+    "images/sevilla1.jpg",
+    "images/sevilla2.jpg",
+    "images/sevilla3.jpg"
+  ],
+  "Granada": [
+    "images/granada1.jpg",
+    "images/granada2.jpg",
+    "images/granada3.jpg"
+  ]
+};
 
 window.COUNTRIES = COUNTRIES;
 window.INTERESTS = INTERESTS;
