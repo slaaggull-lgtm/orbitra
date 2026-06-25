@@ -94,7 +94,7 @@ const CITY_PHOTOS = {
   "Lyon": [
     "images/Lyon1.jpg",
     "images/Lyon2.jpg",
-    "imagesLyon3.jpg"
+    "images/Lyon3.jpg"
   ],
   "Marsilya": [
     "images/Marsilya1.jpg",
