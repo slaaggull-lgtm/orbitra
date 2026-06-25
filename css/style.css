@@ -63,6 +63,7 @@ canvas { display: block; }
   color: #e7ecf5;
   display: flex; flex-direction: column;
   max-width: 92vw;
+  overflow-y: auto;
 }
 #info-panel.open { transform: translateX(0); }
 
@@ -168,3 +169,36 @@ canvas { display: block; }
   padding: 16px; border-radius: 10px; font-size: 14px; letter-spacing: 1px;
   cursor: pointer; font-weight: 600;
 }
+
+.emoji-row { display: flex; gap: 8px; margin-top: 10px; }
+.emoji-pill {
+  background: rgba(120,160,220,0.12);
+  border: 1px solid rgba(120,160,220,0.18);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 18px;
+}
+
+.city-photos {
+  margin-top: 18px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+.city-photos.show { opacity: 1; max-height: 140px; }
+.city-photos-label {
+  font-size: 12px; letter-spacing: 1px; color: #8896ad;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.city-photos-track {
+  display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+.city-photos-track img {
+  width: 150px; height: 100px; object-fit: cover; border-radius: 10px;
+  flex-shrink: 0; scroll-snap-align: start;
+  border: 1px solid rgba(120,160,220,0.15);
+}
+.city-photos-track::-webkit-scrollbar { height: 5px; }
+.city-photos-track::-webkit-scrollbar-thumb { background: rgba(255,184,92,0.4); border-radius: 4px; }

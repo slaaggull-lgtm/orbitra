@@ -63,12 +63,17 @@ const UI = (() => {
     const country = window.COUNTRIES[key];
 
     document.getElementById("panel-eyebrow").textContent = "SEÇİLEN ÜLKE";
-    document.getElementById("panel-title").textContent = country.name;
+    document.getElementById("panel-title").innerHTML =
+      `${country.flag} ${country.name}`;
+    document.getElementById("panel-emojis").innerHTML =
+      country.emojis.map((e) => `<span class="emoji-pill">${e}</span>`).join("");
     document.getElementById("panel-desc").textContent =
-      country.desc + " Aşağıdan bir veya birkaç şehir seç, Faz 2'de buradan gün gün gezi planına geçeceğiz.";
+      country.desc + " Aşağıdan bir veya birkaç şehir seç, fotoğraflarına göz at; Faz 2'de buradan gün gün gezi planına geçeceğiz.";
 
     const listEl = document.getElementById("city-list");
     listEl.innerHTML = "";
+    document.getElementById("city-photos").classList.remove("show");
+    document.getElementById("city-photos").innerHTML = "";
 
     country.cities.forEach((city) => {
       const row = document.createElement("div");
@@ -83,11 +88,22 @@ const UI = (() => {
           row.classList.add("selected");
         }
         document.getElementById("continue-btn").classList.toggle("ready", selectedCities.size > 0);
+        showCityPhotos(city);
       });
       listEl.appendChild(row);
     });
 
     document.getElementById("info-panel").classList.add("open");
+  }
+
+  function showCityPhotos(city) {
+    const wrap = document.getElementById("city-photos");
+    const photos = window.CITY_PHOTOS[city] || [];
+    wrap.innerHTML = `<div class="city-photos-label">${city}</div>` +
+      `<div class="city-photos-track">` +
+      photos.map((url) => `<img src="${url}" alt="${city}" loading="lazy" />`).join("") +
+      `</div>`;
+    wrap.classList.add("show");
   }
 
   function resetToGlobe() {

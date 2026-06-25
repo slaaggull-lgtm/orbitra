@@ -29,23 +29,25 @@
     <div id="close-panel">✕</div>
     <div class="eyebrow" id="panel-eyebrow">ÜLKE</div>
     <h2 id="panel-title">—</h2>
+    <div id="panel-emojis" class="emoji-row"></div>
     <p class="desc" id="panel-desc">—</p>
     <div id="city-list"></div>
+    <div id="city-photos" class="city-photos"></div>
     <button id="continue-btn">Devam et →</button>
   </div>
 
   <div id="preferences-panel">
     <div id="back-to-cities">← Şehirlere dön</div>
     <div class="eyebrow">PLANINI ÖZELLEŞTİR</div>
-    <h2>Kaç gün, ne tempo?</h2>
+    <h2>Kaç gün kalmayı, nasıl bir tempo izlemeyi düşünüyorsun?</h2>
 
-    <label class="field-label">Gün sayısı: <span id="days-output">3</span></label>
+    <label class="field-label">Kaç gün kalmayı planlıyorsun? <span id="days-output">3</span> gün</label>
     <input type="range" id="days-input" min="1" max="14" value="3" />
 
-    <label class="field-label">Tempo</label>
+    <label class="field-label">Nasıl bir tempo istersin?</label>
     <div id="pace-options" class="pace-grid"></div>
 
-    <label class="field-label">İlgi alanların</label>
+    <label class="field-label">Seni en çok ne mutlu eder?</label>
     <div id="interest-options" class="interest-grid"></div>
 
     <button id="build-plan-btn">Planımı oluştur →</button>
