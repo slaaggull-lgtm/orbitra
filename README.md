@@ -21,7 +21,7 @@
 
 ---
 
-## ✨ What does this project do?
+## ✨ 🎯 What does this project do?
 
 Traditional travel planners make you fill out a form and return a flat list. Discovery turns this into an experience:
 
