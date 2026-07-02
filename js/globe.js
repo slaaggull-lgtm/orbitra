@@ -44,19 +44,24 @@ const Globe = (() => {
     const h = window.innerHeight;
     const isMobile = w < 768;
     const isShort = h < 600;
+    const onHome = document.getElementById("ui")?.dataset.step === "home";
 
     let earthY = isMobile ? -0.55 : -0.35;
     let earthScale = 1;
     let camZ = 7;
 
+    if (!onHome) {
+      earthY += isMobile ? 0.35 : 0.25;
+    }
+
     if (isShort) {
-      earthY = -0.45;
+      earthY = onHome ? -0.45 : -0.15;
       earthScale = 0.85;
       camZ = 6.5;
     }
 
     if (w < 480) {
-      earthY = -0.65;
+      earthY = onHome ? -0.65 : -0.3;
       earthScale = 0.78;
       camZ = 6.2;
     }
@@ -279,7 +284,7 @@ const Globe = (() => {
     renderer.render(scene, camera);
   }
 
-  return { init, focusOnCountry, resetToGlobe, onArrive };
+  return { init, focusOnCountry, resetToGlobe, onArrive, refreshLayout: applyLayout };
 })();
 
 window.Globe = Globe;

@@ -11,6 +11,12 @@ const I18n = (() => {
   const STRINGS = {
     tr: {
       loading: "DÜNYA YÜKLENİYOR",
+      backBtn: "Geri",
+      openCountryPicker: "Ülke Seç",
+      countryPickerTitle: "Ülke Seç",
+      searchPlaceholder: "Ülke ara…",
+      noResults: "Sonuç bulunamadı",
+      cityHint: "Tek bir şehir seçmen yeterli — istersen birden fazla da seçebilirsin.",
       title: "Bir ülke seç",
       subtitle: "Keşfetmek istediğin yere dokun",
       countries: {
@@ -24,7 +30,6 @@ const I18n = (() => {
       panelDescSuffix:
         " Aşağıdan bir veya birkaç şehir seç, fotoğraflarına göz at; ardından kişisel gezi planını oluştur.",
       continueBtn: "Devam et →",
-      backToCities: "← Şehirlere dön",
       prefEyebrow: "PLANINI ÖZELLEŞTİR",
       prefTitle: "Kaç gün kalmayı, nasıl bir tempo izlemeyi düşünüyorsun?",
       daysLabel: "Kaç gün kalmayı planlıyorsun?",
@@ -34,7 +39,6 @@ const I18n = (() => {
       buildPlanBtn: "Planımı oluştur →",
       planEyebrow: "GEZİ PLANI",
       planTitle: "Günlük programın hazır",
-      backToPrefs: "← Tercihlere dön",
       downloadPdf: "PDF olarak indir",
       budgetTitle: "Tahmini bütçe",
       budgetTotal: "Toplam",
@@ -78,6 +82,12 @@ const I18n = (() => {
     },
     en: {
       loading: "LOADING WORLD",
+      backBtn: "Back",
+      openCountryPicker: "Choose Country",
+      countryPickerTitle: "Choose Country",
+      searchPlaceholder: "Search country…",
+      noResults: "No results found",
+      cityHint: "Selecting just one city is enough — you can pick more if you like.",
       title: "Choose a country",
       subtitle: "Tap where you want to explore",
       countries: {
@@ -91,7 +101,6 @@ const I18n = (() => {
       panelDescSuffix:
         " Pick one or more cities below, browse photos, then build your personal travel plan.",
       continueBtn: "Continue →",
-      backToCities: "← Back to cities",
       prefEyebrow: "CUSTOMIZE YOUR PLAN",
       prefTitle: "How many days and what pace do you prefer?",
       daysLabel: "How many days are you planning?",
@@ -101,7 +110,6 @@ const I18n = (() => {
       buildPlanBtn: "Build my plan →",
       planEyebrow: "TRAVEL PLAN",
       planTitle: "Your daily itinerary is ready",
-      backToPrefs: "← Back to preferences",
       downloadPdf: "Download as PDF",
       budgetTitle: "Estimated budget",
       budgetTotal: "Total",
@@ -172,6 +180,12 @@ const I18n = (() => {
       const key = el.dataset.i18n;
       const val = t(key);
       if (val) el.textContent = val;
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.dataset.i18nPlaceholder;
+      const val = t(key);
+      if (val) el.placeholder = val;
     });
 
     document.querySelectorAll(".country-btn").forEach((btn) => {

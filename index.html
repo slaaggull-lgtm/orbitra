@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<div id="top-nav">
+  <button id="nav-back" type="button" aria-label="Back">← <span data-i18n="backBtn">Geri</span></button>
+  <button id="open-country-picker" type="button" data-i18n="openCountryPicker">Ülke Seç</button>
+</div>
+
 <div id="lang-switch" aria-label="Language">
   <button class="lang-btn active" data-lang="tr" type="button">TR</button>
   <button class="lang-btn" data-lang="en" type="button">EN</button>
@@ -16,7 +21,7 @@
 <div id="loading" data-i18n="loading">DÜNYA YÜKLENİYOR</div>
 <div id="canvas-holder"></div>
 
-<div id="ui">
+<div id="ui" data-step="home">
   <div id="hero-zone">
     <div id="title">
       <h1 data-i18n="title">Bir ülke seç</h1>
@@ -24,27 +29,20 @@
     </div>
   </div>
 
-  <div id="country-list">
-    <button class="country-btn" data-country="italy" type="button">İtalya</button>
-    <button class="country-btn" data-country="france" type="button">Fransa</button>
-    <button class="country-btn" data-country="turkey" type="button">Türkiye</button>
-    <button class="country-btn" data-country="japan" type="button">Japonya</button>
-    <button class="country-btn" data-country="spain" type="button">İspanya</button>
-  </div>
+  <div id="country-list"></div>
 
   <div id="info-panel">
-    <div id="close-panel" role="button" tabindex="0" aria-label="Close">✕</div>
     <div class="eyebrow" id="panel-eyebrow" data-i18n="panelEyebrow">SEÇİLEN ÜLKE</div>
     <h2 id="panel-title">—</h2>
     <div id="panel-emojis" class="emoji-row"></div>
     <p class="desc" id="panel-desc">—</p>
+    <p class="city-hint" data-i18n="cityHint">Tek bir şehir seçmen yeterli — istersen birden fazla da seçebilirsin.</p>
     <div id="city-list"></div>
     <div id="city-photos" class="city-photos"></div>
     <button id="continue-btn" type="button" data-i18n="continueBtn">Devam et →</button>
   </div>
 
   <div id="preferences-panel">
-    <div id="back-to-cities" role="button" tabindex="0" data-i18n="backToCities">← Şehirlere dön</div>
     <div class="eyebrow" data-i18n="prefEyebrow">PLANINI ÖZELLEŞTİR</div>
     <h2 data-i18n="prefTitle">Kaç gün kalmayı, nasıl bir tempo izlemeyi düşünüyorsun?</h2>
 
@@ -64,26 +62,39 @@
   </div>
 
   <div id="plan-panel">
-    <div id="back-to-prefs" role="button" tabindex="0" data-i18n="backToPrefs">← Tercihlere dön</div>
-    <div class="eyebrow" data-i18n="planEyebrow">GEZİ PLANI</div>
-    <h2 data-i18n="planTitle">Günlük programın hazır</h2>
+    <div id="plan-scroll">
+      <div class="eyebrow" data-i18n="planEyebrow">GEZİ PLANI</div>
+      <h2 data-i18n="planTitle">Günlük programın hazır</h2>
 
-    <div id="plan-layout">
-      <div id="plan-main">
-        <div id="city-info-section">
-          <h3 data-i18n="cityInfoTitle">Şehir bilgileri</h3>
-          <div id="city-info-cards"></div>
+      <div id="plan-layout">
+        <div id="plan-main">
+          <div id="city-info-section">
+            <h3 data-i18n="cityInfoTitle">Şehir bilgileri</h3>
+            <div id="city-info-cards"></div>
+          </div>
+          <div id="itinerary"></div>
         </div>
-        <div id="itinerary"></div>
+        <aside id="budget-card">
+          <h3 data-i18n="budgetTitle">Tahmini bütçe</h3>
+          <div id="budget-rows"></div>
+          <div id="budget-total"></div>
+        </aside>
       </div>
-      <aside id="budget-card">
-        <h3 data-i18n="budgetTitle">Tahmini bütçe</h3>
-        <div id="budget-rows"></div>
-        <div id="budget-total"></div>
-      </aside>
     </div>
+    <div id="plan-footer">
+      <button id="download-pdf-btn" type="button" data-i18n="downloadPdf">PDF olarak indir</button>
+    </div>
+  </div>
+</div>
 
-    <button id="download-pdf-btn" type="button" data-i18n="downloadPdf">PDF olarak indir</button>
+<div id="country-picker" aria-hidden="true">
+  <div id="country-picker-dialog">
+    <div id="country-picker-header">
+      <h3 data-i18n="countryPickerTitle">Ülke Seç</h3>
+      <button id="country-picker-close" type="button" aria-label="Close">✕</button>
+    </div>
+    <input type="search" id="country-search" data-i18n-placeholder="searchPlaceholder" placeholder="Ülke ara…" autocomplete="off" />
+    <div id="country-picker-list"></div>
   </div>
 </div>
 
@@ -91,6 +102,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/data.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/countryPicker.js"></script>
 <script src="js/globe.js"></script>
 <script src="js/photos.js"></script>
 <script src="js/planEngine.js"></script>

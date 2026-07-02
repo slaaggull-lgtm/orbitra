@@ -1,6 +1,6 @@
 /**
  * ui.js
- * DOM etkileşimleri: ülke/şehir seçimi, plan paneli, i18n entegrasyonu.
+ * Ülke/şehir seçimi, plan paneli, navigasyon entegrasyonu.
  */
 
 const UI = (() => {
@@ -9,43 +9,71 @@ const UI = (() => {
   let busy = false;
   let currentPlan = null;
 
-  function init() {
-    document.querySelectorAll(".country-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (busy) return;
-        busy = true;
-        selectedKey = btn.dataset.country;
-        selectedCities = new Set();
+  function renderPopularCountries() {
+    const wrap = document.getElementById("country-list");
+    if (!wrap) return;
+    const lang = I18n.getLang();
+    wrap.innerHTML = (window.POPULAR_COUNTRY_KEYS || [])
+      .map((key) => {
+        const c = window.COUNTRIES[key];
+        if (!c) return "";
+        return `<button class="country-btn" data-country="${key}" type="button">${getCountryName(key, lang)}</button>`;
+      })
+      .join("");
 
-        document.getElementById("title").classList.remove("show");
-        document.getElementById("country-list").classList.remove("show");
-        document.querySelectorAll(".country-btn").forEach((b) => {
-          b.classList.toggle("active", b === btn);
-        });
-
-        Globe.focusOnCountry(selectedKey);
-      });
+    wrap.querySelectorAll(".country-btn").forEach((btn) => {
+      btn.addEventListener("click", () => selectCountry(btn.dataset.country));
     });
+  }
+
+  function selectCountry(key) {
+    if (!window.COUNTRIES[key] || busy) return;
+    busy = true;
+    selectedKey = key;
+    selectedCities = new Set();
+
+    document.getElementById("title")?.classList.remove("show");
+    document.getElementById("country-list")?.classList.remove("show");
+    document.querySelectorAll(".country-btn").forEach((b) => {
+      b.classList.toggle("active", b.dataset.country === key);
+    });
+
+    Globe.focusOnCountry(key);
+  }
+
+  function handleBack() {
+    const step = Navigation.getStep();
+    if (step === Navigation.STEPS.PLAN) {
+      document.getElementById("plan-panel").classList.remove("open");
+      document.getElementById("preferences-panel").classList.add("open");
+      Navigation.setStep(Navigation.STEPS.PREFERENCES);
+    } else if (step === Navigation.STEPS.PREFERENCES) {
+      document.getElementById("preferences-panel").classList.remove("open");
+      document.getElementById("info-panel").classList.add("open");
+      Navigation.setStep(Navigation.STEPS.COUNTRY);
+    } else if (step === Navigation.STEPS.COUNTRY) {
+      resetToGlobe();
+    }
+  }
+
+  function init() {
+    renderPopularCountries();
 
     Globe.onArrive(() => {
       showCountryPanel(selectedKey);
+      Navigation.setStep(Navigation.STEPS.COUNTRY);
       busy = false;
     });
 
-    document.getElementById("close-panel").addEventListener("click", resetToGlobe);
-
     document.getElementById("continue-btn").addEventListener("click", () => {
       Preferences.reset();
-      Preferences.open();
-    });
-
-    document.getElementById("back-to-prefs").addEventListener("click", () => {
-      document.getElementById("plan-panel").classList.remove("open");
+      document.getElementById("info-panel").classList.remove("open");
       document.getElementById("preferences-panel").classList.add("open");
+      Navigation.setStep(Navigation.STEPS.PREFERENCES);
     });
 
-    document.getElementById("download-pdf-btn").addEventListener("click", () => {
-      if (currentPlan) PdfExport.download(currentPlan);
+    document.getElementById("download-pdf-btn").addEventListener("click", async () => {
+      if (currentPlan) await PdfExport.download(currentPlan);
     });
 
     Preferences.onSubmit((summary) => {
@@ -58,9 +86,11 @@ const UI = (() => {
       });
       currentPlan = plan;
       showPlanPanel(plan);
+      Navigation.setStep(Navigation.STEPS.PLAN);
     });
 
     I18n.onChange(() => {
+      renderPopularCountries();
       if (selectedKey) refreshCountryPanel(selectedKey);
       if (currentPlan) {
         currentPlan.country = getCountryName(selectedKey, I18n.getLang());
@@ -156,7 +186,6 @@ const UI = (() => {
   }
 
   function renderPlan(plan) {
-    const lang = I18n.getLang();
     const itineraryEl = document.getElementById("itinerary");
     itineraryEl.innerHTML = plan.itinerary
       .map(
@@ -168,17 +197,15 @@ const UI = (() => {
         </div>
         <div class="schedule-list">
           ${day.schedule
-            .map(
-              (slot) => {
-                const title = resolveActivityTitle(day.city, slot.actKey, slot.title);
-                return `
+            .map((slot) => {
+              const title = resolveActivityTitle(day.city, slot.actKey, slot.title);
+              return `
             <div class="schedule-item">
               <span class="schedule-time">${slot.time}</span>
               <span class="schedule-title">${title}</span>
               <span class="schedule-cost">${slot.cost > 0 ? slot.cost + " " + plan.budget.currency : "—"}</span>
             </div>`;
-              }
-            )
+            })
             .join("")}
         </div>
       </div>`
@@ -205,16 +232,18 @@ const UI = (() => {
     selectedKey = null;
     selectedCities = new Set();
     currentPlan = null;
+    busy = false;
 
     Globe.resetToGlobe();
+    Navigation.setStep(Navigation.STEPS.HOME);
 
     setTimeout(() => {
-      document.getElementById("title").classList.add("show");
-      document.getElementById("country-list").classList.add("show");
+      document.getElementById("title")?.classList.add("show");
+      document.getElementById("country-list")?.classList.add("show");
     }, 300);
   }
 
-  return { init };
+  return { init, selectCountry, handleBack, resetToGlobe };
 })();
 
 window.UI = UI;

@@ -5,6 +5,8 @@
 
 window.addEventListener("load", () => {
   I18n.init();
+  Navigation.init();
+  CountryPicker.init();
   Globe.init(document.getElementById("canvas-holder"));
   Preferences.init();
   UI.init();
