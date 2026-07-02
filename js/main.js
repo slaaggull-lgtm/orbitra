@@ -1,9 +1,10 @@
 /**
  * main.js
- * Uygulama giriş noktası: sahneyi başlatır, UI'yı bağlar, açılış sırasını yönetir.
+ * Uygulama giriş noktası.
  */
 
 window.addEventListener("load", () => {
+  I18n.init();
   Globe.init(document.getElementById("canvas-holder"));
   Preferences.init();
   UI.init();

@@ -1,11 +1,6 @@
 /**
  * preferences.js
- * Faz 2 — Adım 1: Şehir seçiminden sonra açılan tercih formu.
- * Gün sayısı, tempo ve ilgi alanlarını toplar; "plan oluştur" tetiklendiğinde
- * şimdilik konsola/uyarıya basit bir özet objesi basar.
- *
- * Bir sonraki adım (yarından sonraki gün): bu objeyi gerçek bir
- * "plan oluşturma motoru"na (planEngine.js, henüz yok) besleyeceğiz.
+ * Gün sayısı, tempo ve ilgi alanı tercih formu.
  */
 
 const Preferences = (() => {
@@ -14,8 +9,7 @@ const Preferences = (() => {
   let onSubmitCallback = null;
 
   function init() {
-    renderPaceOptions();
-    renderInterestOptions();
+    renderOptions();
 
     const daysInput = document.getElementById("days-input");
     const daysOutput = document.getElementById("days-output");
@@ -44,7 +38,9 @@ const Preferences = (() => {
     window.PACE_OPTIONS.forEach((p) => {
       const el = document.createElement("div");
       el.className = "pace-card" + (p.key === selectedPace ? " selected" : "");
-      el.innerHTML = `<strong>${p.label}</strong><span>${p.desc}</span>`;
+      el.innerHTML =
+        `<strong>${I18n.t(`pace.${p.key}.label`)}</strong>` +
+        `<span>${I18n.t(`pace.${p.key}.desc`)}</span>`;
       el.addEventListener("click", () => {
         selectedPace = p.key;
         document.querySelectorAll(".pace-card").forEach((c) => c.classList.remove("selected"));
@@ -59,8 +55,8 @@ const Preferences = (() => {
     wrap.innerHTML = "";
     window.INTERESTS.forEach((i) => {
       const el = document.createElement("div");
-      el.className = "interest-chip";
-      el.innerHTML = `<span>${i.icon}</span> ${i.label}`;
+      el.className = "interest-chip" + (selectedInterests.has(i.key) ? " selected" : "");
+      el.innerHTML = `<span>${i.icon}</span> ${I18n.t(`interests.${i.key}`)}`;
       el.addEventListener("click", () => {
         if (selectedInterests.has(i.key)) {
           selectedInterests.delete(i.key);
@@ -72,6 +68,11 @@ const Preferences = (() => {
       });
       wrap.appendChild(el);
     });
+  }
+
+  function renderOptions() {
+    renderPaceOptions();
+    renderInterestOptions();
   }
 
   function open() {
@@ -88,11 +89,10 @@ const Preferences = (() => {
     selectedInterests = new Set();
     document.getElementById("days-input").value = 3;
     document.getElementById("days-output").textContent = "3";
-    renderPaceOptions();
-    renderInterestOptions();
+    renderOptions();
   }
 
-  return { init, open, onSubmit, reset };
+  return { init, open, onSubmit, reset, renderOptions };
 })();
 
 window.Preferences = Preferences;
