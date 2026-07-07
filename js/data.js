@@ -12,7 +12,6 @@ const COUNTRIES = {
     lat: 41.9,
     lon: 12.5,
     currency: "EUR",
-    desc: { tr: "Tarih, sanat ve mutfağın iç içe geçtiği bir yarımada.", en: "A peninsula where history, art, and cuisine intertwine." },
     cities: ["Roma", "Milano", "Venedik", "Floransa"],
   },
   france: {
@@ -23,7 +22,6 @@ const COUNTRIES = {
     lat: 46.6,
     lon: 2.2,
     currency: "EUR",
-    desc: { tr: "Şıklık, gastronomi ve köklü mimarinin buluşma noktası.", en: "Where elegance, gastronomy, and timeless architecture meet." },
     cities: ["Paris", "Nice", "Lyon", "Marsilya"],
   },
   turkey: {
@@ -34,7 +32,6 @@ const COUNTRIES = {
     lat: 39.0,
     lon: 35.0,
     currency: "TRY",
-    desc: { tr: "İki kıtayı birleştiren tarih, lezzet ve doğa zenginliği.", en: "Rich history, flavors, and nature bridging two continents." },
     cities: ["İstanbul", "Kapadokya", "İzmir", "Antalya"],
   },
   japan: {
@@ -45,7 +42,6 @@ const COUNTRIES = {
     lat: 36.2,
     lon: 138.2,
     currency: "JPY",
-    desc: { tr: "Gelenekle geleceğin yan yana yürüdüğü ada ülkesi.", en: "An island nation where tradition walks beside the future." },
     cities: ["Tokyo", "Kyoto", "Osaka", "Hiroşima"],
   },
   spain: {
@@ -56,133 +52,9 @@ const COUNTRIES = {
     lat: 40.4,
     lon: -3.7,
     currency: "EUR",
-    desc: { tr: "Tutkulu kültür, sahiller ve canlı şehir hayatı.", en: "Passionate culture, beaches, and vibrant city life." },
     cities: ["Madrid", "Barselona", "Sevilla", "Granada"],
   },
-  germany: {
-    key: "germany", name: { tr: "Almanya", en: "Germany" }, flag: "🇩🇪",
-    emojis: ["🍺", "🏰", "🌲", "🚂"], lat: 51.2, lon: 10.4, currency: "EUR",
-    desc: { tr: "Tarih, doğa ve modern şehir yaşamının buluştuğu ülke.", en: "History, nature, and modern city life combined." },
-    cities: ["Berlin", "Münih", "Hamburg", "Köln"],
-  },
-  uk: {
-    key: "uk", name: { tr: "Birleşik Krallık", en: "United Kingdom" }, flag: "🇬🇧",
-    emojis: ["☕", "🏰", "🎭", "🌧️"], lat: 54.0, lon: -2.0, currency: "GBP",
-    desc: { tr: "Köklü tarih, kültür ve ikonik başkentler.", en: "Deep history, culture, and iconic capitals." },
-    cities: ["Londra", "Edinburgh", "Manchester", "Bath"],
-  },
-  greece: {
-    key: "greece", name: { tr: "Yunanistan", en: "Greece" }, flag: "🇬🇷",
-    emojis: ["🏛️", "🌊", "🫒", "☀️"], lat: 39.1, lon: 21.8, currency: "EUR",
-    desc: { tr: "Antik medeniyetler, adalar ve Ege mutfağı.", en: "Ancient civilizations, islands, and Aegean cuisine." },
-    cities: ["Atina", "Santorini", "Mykonos", "Selanik"],
-  },
-  portugal: {
-    key: "portugal", name: { tr: "Portekiz", en: "Portugal" }, flag: "🇵🇹",
-    emojis: ["🌊", "🎸", "🍷", "🏄"], lat: 39.4, lon: -8.2, currency: "EUR",
-    desc: { tr: "Atlantik kıyısı, fado müziği ve lezzetli deniz ürünleri.", en: "Atlantic coast, fado music, and seafood." },
-    cities: ["Lizbon", "Porto", "Faro", "Sintra"],
-  },
-  netherlands: {
-    key: "netherlands", name: { tr: "Hollanda", en: "Netherlands" }, flag: "🇳🇱",
-    emojis: ["🌷", "🚲", "🖼️", "🧀"], lat: 52.1, lon: 5.3, currency: "EUR",
-    desc: { tr: "Kanallar, bisiklet kültürü ve sanat müzeleri.", en: "Canals, cycling culture, and art museums." },
-    cities: ["Amsterdam", "Rotterdam", "Utrecht", "Keukenhof"],
-  },
-  usa: {
-    key: "usa", name: { tr: "ABD", en: "United States" }, flag: "🇺🇸",
-    emojis: ["🗽", "🎬", "🏀", "🌉"], lat: 39.8, lon: -98.6, currency: "USD",
-    desc: { tr: "Kıtalar arası kültür, doğa ve mega şehirler.", en: "Cross-cultural nation of nature and megacities." },
-    cities: ["New York", "Los Angeles", "San Francisco", "Chicago"],
-  },
-  canada: {
-    key: "canada", name: { tr: "Kanada", en: "Canada" }, flag: "🇨🇦",
-    emojis: ["🍁", "🏔️", "🦌", "🏒"], lat: 56.1, lon: -106.3, currency: "CAD",
-    desc: { tr: "Muhteşem doğa, göller ve çok kültürlü şehirler.", en: "Stunning nature, lakes, and multicultural cities." },
-    cities: ["Toronto", "Vancouver", "Montreal", "Quebec"],
-  },
-  mexico: {
-    key: "mexico", name: { tr: "Meksika", en: "Mexico" }, flag: "🇲🇽",
-    emojis: ["🌮", "🎉", "🏖️", "🌵"], lat: 23.6, lon: -102.5, currency: "MXN",
-    desc: { tr: "Mayalar, renkli sokaklar ve otantik mutfak.", en: "Maya heritage, colorful streets, and authentic cuisine." },
-    cities: ["Mexico City", "Cancún", "Oaxaca", "Guadalajara"],
-  },
-  brazil: {
-    key: "brazil", name: { tr: "Brezilya", en: "Brazil" }, flag: "🇧🇷",
-    emojis: ["⚽", "🎭", "🏖️", "🌴"], lat: -14.2, lon: -51.9, currency: "BRL",
-    desc: { tr: "Amazon, samba ve muhteşem kıyılar.", en: "Amazon rainforest, samba, and stunning coasts." },
-    cities: ["Rio de Janeiro", "São Paulo", "Salvador", "Brasília"],
-  },
-  egypt: {
-    key: "egypt", name: { tr: "Mısır", en: "Egypt" }, flag: "🇪🇬",
-    emojis: ["🏜️", "🐫", "🔺", "⛵"], lat: 26.8, lon: 30.8, currency: "EGP",
-    desc: { tr: "Firavunlar, Nil ve binlerce yıllık tarih.", en: "Pharaohs, the Nile, and millennia of history." },
-    cities: ["Kahire", "Luxor", "Aswan", "Sharm El Sheikh"],
-  },
-  morocco: {
-    key: "morocco", name: { tr: "Fas", en: "Morocco" }, flag: "🇲🇦",
-    emojis: ["🕌", "🐪", "🧿", "🍵"], lat: 31.8, lon: -7.1, currency: "MAD",
-    desc: { tr: "Çöl, medinalar ve egzotik çarşılar.", en: "Desert, medinas, and exotic souks." },
-    cities: ["Marakeş", "Fes", "Casablanca", "Chefchaouen"],
-  },
-  uae: {
-    key: "uae", name: { tr: "BAE", en: "UAE" }, flag: "🇦🇪",
-    emojis: ["🏙️", "🛍️", "🏜️", "⛵"], lat: 23.4, lon: 53.8, currency: "AED",
-    desc: { tr: "Ultra modern mimari ve çöl maceraları.", en: "Ultra-modern architecture and desert adventures." },
-    cities: ["Dubai", "Abu Dhabi", "Sharjah", "Al Ain"],
-  },
-  thailand: {
-    key: "thailand", name: { tr: "Tayland", en: "Thailand" }, flag: "🇹🇭",
-    emojis: ["🛕", "🍜", "🏝️", "🐘"], lat: 15.9, lon: 100.9, currency: "THB",
-    desc: { tr: "Tapınaklar, tropikal adalar ve sokak yemekleri.", en: "Temples, tropical islands, and street food." },
-    cities: ["Bangkok", "Chiang Mai", "Phuket", "Krabi"],
-  },
-  vietnam: {
-    key: "vietnam", name: { tr: "Vietnam", en: "Vietnam" }, flag: "🇻🇳",
-    emojis: ["🍜", "⛵", "🏍️", "🌾"], lat: 14.1, lon: 108.3, currency: "VND",
-    desc: { tr: "Halong Körfezi, tarih ve taze mutfak.", en: "Ha Long Bay, history, and fresh cuisine." },
-    cities: ["Hanoi", "Ho Chi Minh", "Hoi An", "Da Nang"],
-  },
-  australia: {
-    key: "australia", name: { tr: "Avustralya", en: "Australia" }, flag: "🇦🇺",
-    emojis: ["🦘", "🏄", "🌊", "🎭"], lat: -25.3, lon: 133.8, currency: "AUD",
-    desc: { tr: "Eşsiz doğa, plajlar ve canlı şehirler.", en: "Unique wildlife, beaches, and vibrant cities." },
-    cities: ["Sydney", "Melbourne", "Brisbane", "Perth"],
-  },
-  southkorea: {
-    key: "southkorea", name: { tr: "Güney Kore", en: "South Korea" }, flag: "🇰🇷",
-    emojis: ["🍜", "🎵", "🏯", "💄"], lat: 36.5, lon: 127.8, currency: "KRW",
-    desc: { tr: "K-pop, teknoloji ve geleneksel saraylar.", en: "K-pop, technology, and traditional palaces." },
-    cities: ["Seul", "Busan", "Jeju", "Gyeongju"],
-  },
-  india: {
-    key: "india", name: { tr: "Hindistan", en: "India" }, flag: "🇮🇳",
-    emojis: ["🕌", "🍛", "🐘", "🎨"], lat: 20.6, lon: 78.9, currency: "INR",
-    desc: { tr: "Renkli kültür, baharatlı mutfak ve tarih.", en: "Colorful culture, spiced cuisine, and history." },
-    cities: ["Delhi", "Jaipur", "Mumbai", "Agra"],
-  },
-  croatia: {
-    key: "croatia", name: { tr: "Hırvatistan", en: "Croatia" }, flag: "🇭🇷",
-    emojis: ["🏖️", "⛵", "🏰", "🌊"], lat: 45.1, lon: 15.2, currency: "EUR",
-    desc: { tr: "Adriyatik kıyısı, tarihi kasabalar ve adalar.", en: "Adriatic coast, historic towns, and islands." },
-    cities: ["Dubrovnik", "Split", "Zagreb", "Hvar"],
-  },
-  austria: {
-    key: "austria", name: { tr: "Avusturya", en: "Austria" }, flag: "🇦🇹",
-    emojis: ["🎻", "🏔️", "☕", "🏰"], lat: 47.5, lon: 14.5, currency: "EUR",
-    desc: { tr: "Alpler, klasik müzik ve imparatorluk mirası.", en: "Alps, classical music, and imperial heritage." },
-    cities: ["Viyana", "Salzburg", "Innsbruck", "Hallstatt"],
-  },
-  switzerland: {
-    key: "switzerland", name: { tr: "İsviçre", en: "Switzerland" }, flag: "🇨🇭",
-    emojis: ["🏔️", "🧀", "🚂", "⌚"], lat: 46.8, lon: 8.2, currency: "CHF",
-    desc: { tr: "Alp manzaraları, göller ve lüks şehirler.", en: "Alpine views, lakes, and luxury cities." },
-    cities: ["Zürich", "Cenevre", "Luzern", "Interlaken"],
-  },
 };
-
-/** Ana ekranda buton olarak gösterilen popüler ülkeler */
-const POPULAR_COUNTRY_KEYS = ["turkey", "italy", "france", "japan", "spain"];
 
 const INTERESTS = [
   { key: "history", icon: "🏛️" },
@@ -453,14 +325,10 @@ function getCountryName(key, lang) {
 }
 
 function getCountryDesc(key, lang) {
-  const c = COUNTRIES[key];
-  const l = lang || (typeof I18n !== "undefined" ? I18n.getLang() : "tr");
-  if (c?.desc) return c.desc[l] || c.desc.tr;
   return I18n?.t(`countryDesc.${key}`) || "";
 }
 
 window.COUNTRIES = COUNTRIES;
-window.POPULAR_COUNTRY_KEYS = POPULAR_COUNTRY_KEYS;
 window.INTERESTS = INTERESTS;
 window.PACE_OPTIONS = PACE_OPTIONS;
 window.CITY_WIKI_TITLES = CITY_WIKI_TITLES;

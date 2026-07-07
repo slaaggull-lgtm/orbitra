@@ -17,6 +17,11 @@ const Preferences = (() => {
       daysOutput.textContent = daysInput.value;
     });
 
+    document.getElementById("back-to-cities").addEventListener("click", () => {
+      document.getElementById("preferences-panel").classList.remove("open");
+      document.getElementById("info-panel").classList.add("open");
+    });
+
     document.getElementById("build-plan-btn").addEventListener("click", () => {
       const summary = {
         days: parseInt(document.getElementById("days-input").value, 10),
