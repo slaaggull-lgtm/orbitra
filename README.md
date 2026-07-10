@@ -86,10 +86,10 @@ orbitra/
 ## 🗺️ Roadmap
 
 ```
-Hafta 1-2   ████████████████████  Faz 1  ✅  3D globe & country selection
-Hafta 3-4   ██████████░░░░░░░░░░  Faz 2  🚧  preferences & itinerary engine
-Hafta 5-6   ░░░░░░░░░░░░░░░░░░░░  Faz 3  ⏳  day flow interface & preference profile
-Hafta 7-8   ░░░░░░░░░░░░░░░░░░░░  Faz 4  ⏳  travel history & polishing
+Week 1-2   ████████████████████  Faz 1  ✅  3D globe & country selection
+Week 3-4   ██████████░░░░░░░░░░  Faz 2  🚧  preferences & itinerary engine
+Week 5-6   ░░░░░░░░░░░░░░░░░░░░  Faz 3  ⏳  day flow interface & preference profile
+Week 7-8   ░░░░░░░░░░░░░░░░░░░░  Faz 4  ⏳  travel history & polishing
 ```
 
 
