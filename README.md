@@ -37,6 +37,14 @@ Traditional travel planners make you fill out a form and return a flat list. Dis
 
 The goal is not just to answer "where to go" — it is to give the user the genuine feeling of actually approaching a city right through their screen.
 
+
+
+<img width="2940" height="1635" alt="Ekran Resmi 2026-07-21 18 10 14" src="https://github.com/user-attachments/assets/97a751a7-ef3e-43fe-aab2-e8c91f54da88" />
+
+
+
+
+
 ## 🎬 Currently working features
 
 | Feature | Status|
