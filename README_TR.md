@@ -39,6 +39,12 @@ bir *deneyime* çeviriyor:
 Amaç sadece "nereye gidilir" sorusuna cevap vermek değil — kullanıcıya
 ekrandan bir şehre **gerçekten yaklaşıyormuş** hissini yaşatmak.
 
+
+<img width="2940" height="1635" alt="Ekran Resmi 2026-07-21 18 10 14" src="https://github.com/user-attachments/assets/e112750f-1d9e-4d3a-95e1-f744016b32f2" />
+
+
+
+
 ## 🎬 Şu an çalışan özellikler
 
 | Özellik | Durum |
